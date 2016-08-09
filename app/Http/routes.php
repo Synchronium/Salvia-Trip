@@ -11,8 +11,8 @@
 |
 */
 
-Route::get('/', 'HomeController');
-Route::get('/browse/', 'BrowseController');
+Route::get('/', 'HomeController@index');
+Route::get('/browse/', 'BrowseController@index');
 Route::get('/what-is-salvia', function(){
     return view('what-is-salvia');
    });
