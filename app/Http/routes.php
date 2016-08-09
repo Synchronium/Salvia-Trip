@@ -11,9 +11,11 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'HomeController');
+Route::get('/browse/', 'BrowseController');
+Route::get('/what-is-salvia', function(){
+    return view('what-is-salvia');
+   });
 
 Route::resource('u', 'UserController');
 Route::resource('e', 'ReportController');
