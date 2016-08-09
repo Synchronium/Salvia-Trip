@@ -11,12 +11,32 @@
 |
 */
 
-Route::get('/', 'HomeController@index');
-Route::get('/browse/', 'BrowseController@index');
-Route::get('/what-is-salvia', function(){
-    return view('what-is-salvia');
-   });
+Route::get('/', [
+    'as' => 'home',
+    'uses' =>'HomeController@index'
+]);
 
-Route::resource('u', 'UserController');
-Route::resource('e', 'ReportController');
-Route::resource('c', 'CommentController');
+Route::get('/browse/{level?}', [
+    'as' => 'browse',
+    'uses' =>'BrowseController@index'
+]);
+
+Route::get('/search', [
+    'as' => 'search',
+    'uses' => function(){
+        return view('search');
+    }
+]);
+
+Route::get('/what-is-salvia', [
+    'as' => 'whatissalvia',
+    'uses' => function(){
+        return view('whatissalvia');
+    }
+]);
+
+
+
+Route::resource('user', 'UserController');
+Route::resource('report', 'ReportController');
+Route::resource('comment', 'CommentController');
