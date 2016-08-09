@@ -14,3 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::resource('u', 'UserController');
+Route::resource('e', 'ReportController');
+Route::resource('c', 'CommentController');
